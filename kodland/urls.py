@@ -23,7 +23,6 @@ import mainapp.views as mainapp
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("mainapp.urls", namespace='articles')),
-    path('tinymce/', include('tinymce.urls')),
 ]
 
 if settings.DEBUG:
