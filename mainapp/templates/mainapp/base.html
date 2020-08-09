@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title|title }}</title>
+
+    <link href = "{% static 'fonts/circe/stylesheet.css' %}" rel = "stylesheet" type = "text/css" />
+    <link rel="stylesheet" href="{% static 'fonts/museo/museocyrl.css' %}" type = "text/css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.tiny.cloud/1/q3i8y4ttupejuagamv04eq1h36hrteh9kafe7i6aa4cpwffn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector: 'textarea',});</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    {% block menu %}
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="{% url 'articles:index' %}">
+                        <img src="{% static 'img/Logo_Kodland.png' %}" alt="logo">
+                    </a>
+                </div>
+                <h1 class="title">Блог</h1>
+                <a href="{% url 'articles:add' %}"><button class="article-button">+ Добавить статью</button></a>
+
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+
+
+</body>
+</html>

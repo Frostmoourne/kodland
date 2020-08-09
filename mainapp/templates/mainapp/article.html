@@ -1,0 +1,25 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="article-container">
+        {% for article in data %}
+            <div class="main-article">
+                <h1>{{ article.title|safe }}</h1>
+                <img src="/media/{{ article.img }}" alt="">
+                <h2>{{ article.short_desc|safe }}</h2>
+                <p>{{ article.article|safe }}</p>
+                <div class="line"></div>
+                <h3>Описание фотографии, источник</h3>
+                <div class="line"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad aliquid autem commodi ducimus,
+                    et illum inventore itaque libero minus nam nulla officiis reprehenderit tempora?</p>
+                <div class="quotes">
+                    <blockquote class="blockquote-8">
+                        <p>Цитата. Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.</p>
+                    </blockquote></div>
+                <div class="line"></div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

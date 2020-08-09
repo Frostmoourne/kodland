@@ -1,0 +1,30 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+    <script type="text/javascript">
+    var loadImg=function(event){
+        $('#frame').attr('src', URL.createObjectURL(event.target.files[0]));
+    };
+    </script>
+    <div class="container">
+        <div class="article-form">
+            <h1>Добавить статью</h1>
+            <input type="file" id="files" />
+
+            <form action="{% url 'articles:add' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ article_form.title }}
+                <input class="submit-article" type="submit" value="Опубликовать">
+                {{ article_form.article }}
+                <div class="upload-img">
+                    <h2>Загрузить изображение</h2>
+                    <button id="img-button" type="button"><p>ФАЙЛ</p>{{ article_form.img }}</button>
+                    <img id="frame"  width="298px" height="100px"/>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

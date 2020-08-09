@@ -1,0 +1,67 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="main-title">
+        <div class="container">
+            {% for article in main_article  %}
+                <div class="title-text">
+                    <h3>NEW</h3>
+
+                        <h1>{{ article.title }}</h1>
+                        <p>{{ article.short_desc }}</p>
+
+                    <a href="{% url 'articles:article' article.pk %}">
+                        <button class="read-article c">Читать</button>
+                    </a>
+
+                </div>
+                <div class="main-img">
+                    <img src="media/{{ article.img }}" alt="">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="other-titles">
+        <div class="container">
+            <h2>Другие статьи</h2>
+            <div class="other-articles">
+                {% for article in other_articles_1 %}
+                    <div class="other-article">
+                        <a href="{% url 'articles:article' article.pk %}">
+                            <div class="other-article-date"><p>{{ article.upload|date:"d F Y H:i"  }}</p></div>
+                            <div class="other-article-img"><img src="/media/{{ article.img }}" alt="img"></div>
+                            <div class="other-article-title">{{ article.title }}</div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="other-articles">
+                {% for article in other_articles_2 %}
+                    <div class="other-article">
+                        <a href="{% url 'articles:article' article.pk %}">
+                            <div class="other-article-date"><p>{{ article.upload|date:"d F Y H:i"  }}</p></div>
+                            <div class="other-article-img"><img src="/media/{{ article.img }}" alt="img"></div>
+                            <div class="other-article-title">{{ article.title }}</div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="other-articles">
+                {% for article in other_articles_3 %}
+                        <div class="other-article">
+                            <a href="{% url 'articles:article' article.pk %}">
+                                <div class="other-article-date"><p>{{ article.upload|date:"d F Y H:i"  }}</p></div>
+                                <div class="other-article-img"><img src="/media/{{ article.img }}" alt="img"></div>
+                                <div class="other-article-title">{{ article.title }}</div>
+                            </a>
+                        </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
